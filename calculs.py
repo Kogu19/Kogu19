@@ -11,3 +11,4 @@ if __name__ == '__main__':
 
     else:
         print("La première occurence de ", val, "se trouve à la position", pos)
+#za&s
