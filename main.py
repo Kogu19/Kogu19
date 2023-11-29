@@ -4,5 +4,5 @@ if __name__ == '__main__':
     files_names = list_of_files(directory, ".txt")
 
 
-    nomsenlever = remove_ext(files_names)
-    print(nomsenlever)
+    remove_ext(files_names)
+    correction()
