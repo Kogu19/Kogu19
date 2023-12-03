@@ -1,10 +1,4 @@
-- 👋 Hi, I’m @Kogu19
-- 👀 I’m interested in ...
-- 🌱 I’m currently learning ...
-- 💞️ I’m looking to collaborate on ...
-- 📫 How to reach me ...
+Joly Corentin
+Vimalan Kogulaan
+https://github.com/Kogu19/pychatbot-Corentin-Kogulaan--PMP.git
 
-<!---
-Kogu19/Kogu19 is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-You can click the Preview link to take a look at your changes.
---->
