@@ -13,8 +13,9 @@ if __name__ == '__main__':
         print("Il y'a déjà un fichier cleaned qui existe")
     else:
         create_folder()
-
-    create_file()
+    dossier_entree = 'speeches'
+    dossier_sortie = 'cleaned'
+    convertir_fichier(dossier_entree, dossier_sortie)
 
 
 

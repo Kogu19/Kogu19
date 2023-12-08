@@ -63,7 +63,22 @@ def enlever(nom):
 def create_folder():
     os.mkdir(r"C:\Users\kogul\PycharmProjects\pythonProject\pychatbot-Corentin-Kogulaan--PMP\cleaned", mode=0o777)
 
-def create_file():
-    Nomination_Chirac1 = r"C:\Users\kogul\PycharmProjects\pythonProject\pychatbot-Corentin-Kogulaan--PMP\cleaned"
-    with open(Nomination_Chirac1, "w" ) as file:
-        Nomination_Chirac1.write("Hello")
+
+
+
+
+
+def convertir_fichier(dossier_entree, dossier_sortie):
+    fichiers = os.listdir(dossier_entree)
+
+    for fichier in fichiers:
+        chemin_fichier_entree = os.path.join(dossier_entree, fichier)
+
+        if os.path.isdir(chemin_fichier_entree):
+            with open(chemin_fichier_entree, "r") as file:
+                contenu = file.read()
+            contenu_min = contenu.lower()
+            chemin_fichier_sortie = os.path.join(dossier_sortie, fichier)
+
+            with open(chemin_fichier_sortie, 'w') as file:
+                file.write(contenu_min)
