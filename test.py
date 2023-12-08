@@ -21,7 +21,7 @@ def remove_ext(files_names):
         noms_sans_ext = files.split('.')[0]
         noms_sans_ext = noms_sans_ext.strip(ch1)
         noms_sans_ext = noms_sans_ext.strip(ch2)
-        noms_sans_ext = noms_sans_ext.strip(prefixe)
+        noms_sans_ext = noms_sans_ext.lstrip(prefixe)
         liste_president.append(noms_sans_ext)
     return liste_president
 
@@ -60,4 +60,10 @@ def enlever(nom):
     if nom6 == nom[5]:
         print(prenom3, nom6)
 
+def create_folder():
+    os.mkdir(r"C:\Users\kogul\PycharmProjects\pythonProject\pychatbot-Corentin-Kogulaan--PMP\cleaned", mode=0o777)
 
+def create_file():
+    Nomination_Chirac1 = r"C:\Users\kogul\PycharmProjects\pythonProject\pychatbot-Corentin-Kogulaan--PMP\cleaned"
+    with open(Nomination_Chirac1, "w" ) as file:
+        Nomination_Chirac1.write("Hello")

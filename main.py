@@ -6,8 +6,15 @@ if __name__ == '__main__':
     liste_sans_doublons = []
 
     nom = remove_ext(files_names)
+    print(nom)
     name = remove_doublons(nom)
     enlever(name)
+    if os.path.isdir("cleaned"):
+        print("Il y'a déjà un fichier cleaned qui existe")
+    else:
+        create_folder()
+
+    create_file()
 
 
 
