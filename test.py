@@ -1,4 +1,5 @@
 import os
+import re
 
 
 def list_of_files(directory, extension):
@@ -70,15 +71,26 @@ def create_folder():
 
 def convertir_fichier(dossier_entree, dossier_sortie):
     fichiers = os.listdir(dossier_entree)
-
     for fichier in fichiers:
         chemin_fichier_entree = os.path.join(dossier_entree, fichier)
-
-        if os.path.isdir(chemin_fichier_entree):
-            with open(chemin_fichier_entree, "r") as file:
+        print(chemin_fichier_entree )
+        if os.path.isdir(dossier_entree):
+            with open(chemin_fichier_entree, "r", encoding='utf8') as file:
                 contenu = file.read()
             contenu_min = contenu.lower()
             chemin_fichier_sortie = os.path.join(dossier_sortie, fichier)
-
-            with open(chemin_fichier_sortie, 'w') as file:
+            with open(chemin_fichier_sortie, 'w', encoding='utf8') as file:
                 file.write(contenu_min)
+            print(contenu_min)
+
+
+def enlever_caract(chemin):
+    for filename in os.listdir(chemin):
+        with open(os.path.join(chemin, filename), 'r', encoding= 'utf8') as file:
+            data = file.read()
+            #print(data)
+        fichier_sans_carac = re.sub(r"['-]", ' ', data)
+        #print(fichier_sans_carac)
+        with open(os.path.join(chemin, filename), 'w', encoding='utf8') as file:
+            file.write(fichier_sans_carac)
+
