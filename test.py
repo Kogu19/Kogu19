@@ -96,7 +96,7 @@ def enlever_caract(chemin):
             file.write(fichier_sans_carac)
 
 def tf(text):
-    mots = text.splif()
+    mots = text.split()
     dictionnaire_mot = {}
     for mot in mots:
         if mot in dictionnaire_mot:
@@ -105,12 +105,38 @@ def tf(text):
             dictionnaire_mot[mot] = 1
     return dictionnaire_mot
 
-def calculate_tf(file_names):
+def calcul_tf(file_names):
     importance_mot = []
-    for files in file_names:
-        file_path = os.path.join(file_names, files)
+    for files in os.listdir(file_names):
+        file_path = os.path.join('cleaned', files)
         with open(file_path, 'r', encoding= 'utf-8') as file:
             text = file.read()
             dictionnaire_mot = tf(text)
         importance_mot.append(dictionnaire_mot)
     return importance_mot
+
+def calcul_idf(importance_mot):
+    idf_compteur = {}
+    idf = {}
+    for i in range(len(importance_mot)):
+        for word in importance_mot[i]:
+            if word in idf_compteur:
+                idf_compteur[word] += 1
+            else :
+                idf_compteur[word] = 1
+        for mot in idf_compteur:
+            idf[mot] = math.log10((len(importance_mot) / idf_compteur[mot]))
+        return idf
+def calcue_tf_idf(tf, idf, file_names):
+    file_names = ["'"] + file_names
+    tf_idf = []
+    tf_idf.append(file_names)
+    for word in idf:
+        tst = [word]
+        for row in tf:
+            if word not in row:
+                tst.append(0.0)
+            else:
+                tst.append(row[mot] * idf[mot])
+        tf_idf.append(tst)
+    return tf_idf

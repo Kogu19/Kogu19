@@ -17,5 +17,5 @@ if __name__ == '__main__':
     dossier_sortie = 'cleaned'
     convertir_fichier(dossier_entree, dossier_sortie)
     enlever_caract(dossier_sortie)
-    ababa = calculate_tf(dossier_sortie)
-    print(ababa)
+    calculate_tf(dossier_sortie)
+
