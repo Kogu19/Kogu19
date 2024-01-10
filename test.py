@@ -1,5 +1,6 @@
 import os
 import re
+import math
 
 
 def list_of_files(directory, extension):
@@ -94,3 +95,22 @@ def enlever_caract(chemin):
         with open(os.path.join(chemin, filename), 'w', encoding='utf8') as file:
             file.write(fichier_sans_carac)
 
+def tf(text):
+    mots = text.splif()
+    dictionnaire_mot = {}
+    for mot in mots:
+        if mot in dictionnaire_mot:
+            dictionnaire_mot[mot] += 1
+        else:
+            dictionnaire_mot[mot] = 1
+    return dictionnaire_mot
+
+def calculate_tf(file_names):
+    importance_mot = []
+    for files in file_names:
+        file_path = os.path.join(file_names, files)
+        with open(file_path, 'r', encoding= 'utf-8') as file:
+            text = file.read()
+            dictionnaire_mot = tf(text)
+        importance_mot.append(dictionnaire_mot)
+    return importance_mot

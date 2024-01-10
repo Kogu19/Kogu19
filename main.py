@@ -17,7 +17,5 @@ if __name__ == '__main__':
     dossier_sortie = 'cleaned'
     convertir_fichier(dossier_entree, dossier_sortie)
     enlever_caract(dossier_sortie)
-    #enlever_caract(r"C:\Users\kogul\PycharmProjects\pythonProject\pychatbot-Corentin-Kogulaan--PMP\cleaned")
-
-
-
+    ababa = calculate_tf(dossier_sortie)
+    print(ababa)
